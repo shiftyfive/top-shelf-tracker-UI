@@ -1,2 +1,2 @@
-# top-shelf-tracker-cli
+# topshelf tracker
 An app for tracking and visualizing hockey statistics
