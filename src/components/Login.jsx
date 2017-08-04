@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import request from 'superagent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/RaisedButton';
 import AUTH_URL from '../server/server';
@@ -25,33 +26,37 @@ class Login extends Component {
       });
   }
   render() {
-    return (<div className="login" >
-      <h3>Please login to Continue</h3>
-      <TextField
-        hintText="Enter your email"
-        floatingLabelText="email"
-        onChange={
-          (event, newValue) => this.setState({
-            email: newValue,
-          })
-        }
-      /> <br />
-      <TextField
-        type="password"
-        hintText="Enter your Password"
-        floatingLabelText="Password"
-        onChange={
-          (event, newValue) => this.setState({
-            password: newValue,
-          })
-        }
-      /> <br />
-      <Button
-        variant="raised"
-        label="Submit"
-        primary
-        onClick={this.handleClick}
-      /> </div>
+    return (
+      <MuiThemeProvider>
+        <div className="login" >
+          <h3>Please login to Continue</h3>
+          <TextField
+            hintText="Enter your email"
+            floatingLabelText="email"
+            onChange={
+              (event, newValue) => this.setState({
+                email: newValue,
+              })
+            }
+          /> <br />
+          <TextField
+            type="password"
+            hintText="Enter your Password"
+            floatingLabelText="Password"
+            onChange={
+              (event, newValue) => this.setState({
+                password: newValue,
+              })
+            }
+          /> <br />
+          <Button
+            variant="raised"
+            label="Submit"
+            primary
+            onClick={this.handleClick}
+          />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
