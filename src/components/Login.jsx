@@ -43,12 +43,8 @@ class Login extends Component {
             type="password"
             hintText="Enter your Password"
             floatingLabelText="Password"
-            onChange={
-              (event, newValue) => this.setState({
-                password: newValue,
-              })
-            }
-          /> <br />
+          />
+          <br />
           <Button
             variant="raised"
             label="Submit"
@@ -60,8 +56,5 @@ class Login extends Component {
     );
   }
 }
-const style = {
-  margin: 15,
-};
 
 export default Login;

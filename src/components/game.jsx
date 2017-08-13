@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-// import Avatar from 'material-ui/Avatar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Button from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
 import MenuItem from 'material-ui/MenuItem';
@@ -8,13 +8,20 @@ import AUTH_URL from '../server/server';
 
 const Event = (props) => {
   return (
-    <div className="event-card">
-      <h4>${props.playerName}</h4>
-      <h5>Event Type: ${props.eventType}</h5>
-      <h5>Zone: ${props.eventZone}</h5>
-      <h5>Time: ${props.eventTime}</h5>
-      <h5>result: ${props.result}</h5>
-    </div>
+    <MuiThemeProvider>
+      <div className="event-card">
+        <h4>{props.playerName}</h4>
+        <h5>Event Type: {props.eventType}</h5>
+        <h5>Zone: {props.eventZone}</h5>
+        <h5>Time: {props.eventTime}</h5>
+        <h5>result: {props.result}</h5>
+        <Button
+          variant="raised"
+          label="Edit"
+          default
+        />
+      </div>
+    </MuiThemeProvider>
   );
 };
 
@@ -34,15 +41,15 @@ class Game extends Component {
         {
           playerName: 'Steven Stamkos',
           eventType: 'Shot',
-          zone: 'left high slot',
-          time: '789',
+          eventZone: 'left high slot',
+          eventTime: '789',
           result: 'Goal',
         },
         {
           playerName: 'John Tavares',
           eventType: 'shot',
-          zone: 'center ice',
-          time: '890',
+          eventZone: 'center ice',
+          eventTime: '890',
           result: 'deflection: recovery',
         },
       ],
@@ -57,7 +64,6 @@ class Game extends Component {
     );
   }
 }
-
 
 // coponentDidMount() {
 //   request

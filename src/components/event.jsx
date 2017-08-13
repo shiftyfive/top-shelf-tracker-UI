@@ -25,13 +25,3 @@ class Event extends Component {
     )
   }
 }
-
-class EventForm extends Component {
-  render() {
-    return (
-      <form>
-
-      </form>
-    )
-  }
-}
