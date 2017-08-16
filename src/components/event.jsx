@@ -1,27 +1,34 @@
-import superagent from 'superagent';
 import React, { Component,} from 'react';
-import Avatar from 'material-ui/Avatar';
-import Button from 'material-ui/Raised-Button'
+import superagent from 'superagent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import style from '../styles/event.css';
+import Button from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
 import MenuItem from 'material-ui/MenuItem';
 
-class Event extends Component {
-  constructor(props) {
-    super(props)
-  }
-  render() {
-    return(
-      <div className="event-card">
-      <h4>${this.state.playerName}</h4>
-       <Avatar
-       className="team-avatar"
-       src=`${this.state.playerTeamIcon}`
-       />
-       <h5>Event Type: ${this.state.eventType}</h5>
-       <h5>Zone: ${this.state.eventZone}</h5>
-       <h5>Time: ${this.state.eventTime}</h5>
-       <h5>result: ${this.state.result}</h5>
+const Event = (props) => {
+  return (
+    <MuiThemeProvider>
+      <div className="event">
+        <h4>{props.playerName}</h4>
+        <div className="col1">
+          <h5>Event Type: {props.eventType}</h5>
+          <h5>Zone: {props.eventZone}</h5>
+        </div>
+        <div className="col2">
+          <h5>Time: {props.eventTime}</h5>
+          <h5>result: {props.result}</h5>
+
+          <Button
+            variant="raised"
+            label="Edit"
+            default
+          />
+        </div>
       </div>
-    )
-  }
-}
+    </MuiThemeProvider>
+  );
+};
+
+
+export default Event;
