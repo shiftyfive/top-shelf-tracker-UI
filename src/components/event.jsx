@@ -1,6 +1,5 @@
 import React, { Component,} from 'react';
 import superagent from 'superagent';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import style from '../styles/event.css';
 import Button from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
@@ -8,7 +7,6 @@ import MenuItem from 'material-ui/MenuItem';
 
 const Event = (props) => {
   return (
-    <MuiThemeProvider>
       <div className="event">
         <h4>{props.playerName}</h4>
         <div className="col1">
@@ -26,7 +24,6 @@ const Event = (props) => {
           />
         </div>
       </div>
-    </MuiThemeProvider>
   );
 };
 

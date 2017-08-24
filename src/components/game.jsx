@@ -1,56 +1,17 @@
-import React, { Component } from 'react';
-import request from 'superagent';
-import Event from '../components/Event'
-import AutoComplete from 'material-ui/AutoComplete';
-import AUTH_URL from '../server/server';
+import React, { Component  } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import GameNavigation from './GameNavigation';
+import EventForm from './EventForm';
 
-const EventsList = (props) => {
+const Game = () => {
   return (
-    <div>
-      {props.events.map(event => <Event {...event} />)}
-    </div>
-  );
-};
-
-class Game extends Component {
-  constructor() {
-    super();
-    this.state = {
-      events: [
-        {
-          playerName: 'Steven Stamkos',
-          eventType: 'Shot',
-          eventZone: 'left high slot',
-          eventTime: '789',
-          result: 'Goal',
-        },
-        {
-          playerName: 'John Tavares',
-          eventType: 'shot',
-          eventZone: 'center ice',
-          eventTime: '890',
-          result: 'deflection: recovery',
-        },
-      ],
-    };
-  }
-
-  render() {
-    return (
+    <MuiThemeProvider>
       <div>
-        <EventsList events={this.state.events} />
+        <GameNavigation />
+        <EventForm />
       </div>
-    );
-  }
+    </MuiThemeProvider>
+  );
 }
-
-// coponentDidMount() {
-//   request
-//     .post(`${AUTH_URL}`)
-//     .send(storage.getItem('token')
-//     .end((err, res) => {
-//       this.state.events = res
-//     })
-// }
 
 export default Game;

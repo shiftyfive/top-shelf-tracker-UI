@@ -12,7 +12,8 @@ const Player = (props) => {
           <tableHeaderColumn>G</tableHeaderColumn>
           <tableHeaderColumn>A</tableHeaderColumn>
           <tableHeaderColumn>P</tableHeaderColumn>
-          <tableHeaderColumn>Corsi</tableHeaderColumn>
+          <tableHeaderColumn>+/-</tableHeaderColumn>
+          <tableHeaderColumn>H</tableHeaderColumn>
         </TableRow>
       </TableHeader>
     </Table>

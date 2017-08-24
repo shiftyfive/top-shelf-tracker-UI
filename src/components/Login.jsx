@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import request from 'superagent';
+import Request from 'superagent';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/RaisedButton';
@@ -18,7 +18,7 @@ class Login extends Component {
   }
 
   handleClick() {
-    request
+    Request
       .post(`${AUTH_URL}login`)
       .send(this.state)
       .end((err, res) => {
