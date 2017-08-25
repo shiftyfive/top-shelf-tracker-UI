@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import TextField from 'material-ui/TextField';
 import MenuItem from 'material-ui/MenuItem';
-import injectTapEventPlugin from 'material-ui'
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import Request from 'superagent';
 import React, { Component } from 'react';
 import AUTH_URL from '../server/server';
@@ -44,7 +44,12 @@ class EventForm extends Component {
 
 
   handleSubmit() {
-    this.setState(() => ({ open: false }));
+    Request
+      .post(`${AUTH_URL}game/:id`)
+      .send(this.state)
+      .end((err, res) => {
+        this.handleClose();
+      });
   }
 
   render() {
@@ -70,7 +75,7 @@ class EventForm extends Component {
           actions={actions}
           modal={false}
           open={this.state.open}
-          onRequestClose={this.handleClose}
+          onRequestClose={this.handleSubmit}
         >
           <div className="event-form">
             <TextField
@@ -82,28 +87,38 @@ class EventForm extends Component {
               value={this.state.type}
               onChange={(...event) => this.updateField('type', event[selectionValue])}
             >
-              <MenuItem value="shot">Shot</MenuItem>
-              <MenuItem value="pass">pass</MenuItem>
+              <MenuItem value="Shot" primaryText="Shot" />
+              <MenuItem value="Pass" primaryText="Pass" />
+              <MenuItem value="Hit" primaryText="Hit" />
             </SelectField>
             <SelectField
               hintText="Event Result"
               value={this.state.result}
               onChange={(...event) => this.updateField('result', event[selectionValue])}
             >
-              <MenuItem value="goal">Goal</MenuItem>
-              <MenuItem value="turn over">Turn Over</MenuItem>
+              <MenuItem value="Goal" primaryText="Goal" />
+              <MenuItem vlaue="Save" primaryText="Save" />
+              <MenuItem value="Zone Exit" primaryText="Zone Exit" />
+              <MenuItem value="Turn Over" primaryText="Turn Over" />
             </SelectField>
             <SelectField
-              hintText="zone"
+              hintText="Zone"
               value={this.state.zone}
               onChange={(...event) => this.updateField('zone', event[selectionValue])}
             >
-              <MenuItem value="sassyPup">sassy pup</MenuItem>
+              <MenuItem value="AZ C-Point" primaryText="AZ C-Point" />
+              <MenuItem value="AZ R-Point" primaryText="AZ R-Point" />
+              <MenuItem value="AZ L-Point" primaryText="AZ L-Point" />
+              <MenuItem value="AZ High Slot" primaryText="AZ High Slot" />
+              <MenuItem value="AZ R High Slot" primaryText="AZ R High Slot" />
+              <MenuItem value="AZ Left High Slot" primaryText="AZ Left High Slot" />
+              <MenuItem value="AZ Slot" primaryText="AZ Slot" />
+              <MenuItem value="AZ Low-Slot" primaryText="AZ Low-Slot" />
             </SelectField>
             <TextField
               hintText="Event Time"
               value={this.state.time}
-              onChange={event => this.updateField('type', event.target.value)}
+              onChange={event => this.updateField('time', event.target.value)}
             />
           </div>
         </Dialog>

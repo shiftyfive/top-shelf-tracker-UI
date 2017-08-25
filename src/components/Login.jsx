@@ -22,37 +22,35 @@ class Login extends Component {
       .post(`${AUTH_URL}login`)
       .send(this.state)
       .end((err, res) => {
-        localStorage.setItem('token', res.body);
+        localStorage.setItem('tstToken', res.body);
       });
   }
   render() {
     return (
-      <MuiThemeProvider>
-        <div className="login" >
-          <h3>Please login to Continue</h3>
-          <TextField
-            hintText="Enter your email"
-            floatingLabelText="email"
-            onChange={
-              (event, newValue) => this.setState({
-                email: newValue,
-              })
-            }
-          /> <br />
-          <TextField
-            type="password"
-            hintText="Enter your Password"
-            floatingLabelText="Password"
-          />
-          <br />
-          <Button
-            variant="raised"
-            label="Submit"
-            primary
-            onClick={this.handleClick}
-          />
-        </div>
-      </MuiThemeProvider>
+      <div className="login" >
+        <h3>Please login to Continue</h3>
+        <TextField
+          hintText="Enter your email"
+          floatingLabelText="email"
+          onChange={
+            (event, newValue) => this.setState({
+              email: newValue,
+            })
+          }
+        /> <br />
+        <TextField
+          type="password"
+          hintText="Enter your Password"
+          floatingLabelText="Password"
+        />
+        <br />
+        <Button
+          variant="raised"
+          label="Submit"
+          primary
+          onClick={this.handleClick}
+        />
+      </div>
     );
   }
 }

@@ -5,13 +5,11 @@ import EventForm from './EventForm';
 
 const Game = () => {
   return (
-    <MuiThemeProvider>
-      <div>
-        <GameNavigation />
-        <EventForm />
-      </div>
-    </MuiThemeProvider>
-  );
+    <div>
+      <GameNavigation />
+      <EventForm />
+    </div>
+  );  
 }
 
 export default Game;

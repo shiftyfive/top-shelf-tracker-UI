@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route, Redirect, withRouter } from 'react-router-dom';
-import Login from './components/Login.jsx';
-import HomePage from './components/HomePage.jsx';
-import Navigation from './components/Navigation.jsx'
-import Game from './components/Game.jsx';
-import EventForm from './components/EventForm';
-import './App.css';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import PrimaryLayout from './components/PrimaryLayout';
+
 
 const App = () => (
-  <div>
-    <Game />
-  </div>
-)
+  <BrowserRouter>
+    <MuiThemeProvider>
+      <PrimaryLayout />
+    </MuiThemeProvider>
+  </BrowserRouter>
+);
 
 export default App;

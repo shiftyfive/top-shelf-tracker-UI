@@ -2,7 +2,7 @@ import Request from 'superagent';
 import React, { Component } from 'react';
 import Button from 'material-ui/RaisedButton';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from 'material-ui/styles/';
 import EventList from './EventList';
 import AUTH_URL from '../server/server';
 
