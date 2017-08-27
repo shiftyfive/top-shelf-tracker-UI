@@ -5,11 +5,9 @@ import PrimaryLayout from './components/PrimaryLayout';
 
 
 const App = () => (
-  <BrowserRouter>
-    <MuiThemeProvider>
-      <PrimaryLayout />
-    </MuiThemeProvider>
-  </BrowserRouter>
+  <MuiThemeProvider>
+    <PrimaryLayout />
+  </MuiThemeProvider>
 );
 
 export default App;

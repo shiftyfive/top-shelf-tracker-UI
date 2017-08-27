@@ -1,10 +1,14 @@
-.container {
+.navContainer {
+  border-radius: 25px;
   height:100vh;
-  width: 8%;
   display: flex;
   margin-left: 10px;
   flex-direction: column;
   background-color:#2f3032;
+}
+
+.navItem a {
+  color: white;
 }
 
 .navItem :hover {
@@ -13,6 +17,7 @@
 }
 
 .navIcon {
+  color: white;
   position: relative;
   top: 5px;
   left: 5px;

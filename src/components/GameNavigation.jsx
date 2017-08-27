@@ -2,7 +2,6 @@ import Request from 'superagent';
 import React, { Component } from 'react';
 import Button from 'material-ui/RaisedButton';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import MuiThemeProvider from 'material-ui/styles/';
 import EventList from './EventList';
 import AUTH_URL from '../server/server';
 
@@ -17,11 +16,7 @@ const styles = {
 };
 
 
-function handleActive(tab) {
-  alert(`A tab with this route property ${tab.props['data-route']} was activated.`);
-}
-
-class GameNavigation  extends Component {
+class GameNavigation extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -33,7 +28,7 @@ class GameNavigation  extends Component {
   }
 
   handleChange(value) {
-    this.setState(() => ({ activeTabIndex: value}));
+    this.setState(() => ({ activeTabIndex: value }));
   }
 
   handleClick() {
@@ -45,31 +40,55 @@ class GameNavigation  extends Component {
       });
   }
 
+  componentWillMount() {
+    Request
+      .post(`${AUTH_URL}/`)
+      
+  }
+
   render() {
     return (
-      <MuiThemeProvider>
+      console.log(this.props.match.params.id),
+      <div>
         <Tabs>
           <Tab label="Period 1" >
             <div>
               <h2 style={styles.headline}>Period 1</h2>
               <EventList />
+              <Button
+                variant="raised"
+                label="Add Event"
+                primary
+                onClick={this.handleClick}
+              />
             </div>
           </Tab>
           <Tab label="Period 2" >
             <div>
               <EventList />
+              <Button
+                variant="raised"
+                label="Add Event"
+                primary
+                onClick={this.handleClick}
+              />
             </div>
           </Tab>
           <Tab label="Period3">
             <div>
               <h2 style={styles.headline}>Period 3</h2>
               <EventList />
+              <Button
+                variant="raised"
+                label="Add Event"
+                primary
+                onClick={this.handleClick}
+              />
             </div>
           </Tab>
           <Tab label="OT">
             <div>
               <h2 style={styles.headline}>OT</h2>
-              <p>test</p>
               <Button
                 variant="raised"
                 label="Add Event"
@@ -79,7 +98,7 @@ class GameNavigation  extends Component {
             </div>
           </Tab>
         </Tabs>
-      </MuiThemeProvider>
+      </div>
     );
   }
 }

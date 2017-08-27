@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import Event from '../components/Event';
+import Event from './Event';
 import Button from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
 import AUTH_URL from '../server/server';

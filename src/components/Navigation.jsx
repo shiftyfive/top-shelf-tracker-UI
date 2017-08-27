@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import HomeIcon from 'material-ui/svg-icons/action/home';
 import BackIcon from 'material-ui/svg-icons/navigation/arrow-back';
 import GamesIcon from 'material-ui/svg-icons/action/event';
@@ -18,34 +17,30 @@ class Navigation extends Component {
     super(props);
     this.state = {
 
-    }
+    };
   }
   render() {
-    return (localStorage.getItem('tstToken')) ? (
-      <MuiThemeProvider>
-        <div className="container">
-          <div className="navItem">
-            <a><span><BackIcon color="white" className="navIcon" /></span>Back</a>
-          </div>
-          <div className="navItem">
-            <a><span><HomeIcon color="white" className="navIcon" /></span>Home</a>
-          </div>
-          <div className="navItem">
-            <a><span><GamesIcon color="white" className="navIcon" /></span>Games</a>
-          </div>
-          <div className="navItem">
-            <a><span><TeamsIcon color="white" className="navIcon" /></span>Teams</a>
-          </div>
-          <div className="navItem">
-            <a><span><PlayerIcon color="white" className="navIcon" /></span>Players</a>
-          </div>
-          <div className="navItem">
-            <a><span><LeagueSettingsIcon color="white" className="navIcon" /></span>Settings</a>
-          </div>
+    return (
+      <div className="navContainer">
+        <div className="navItem">
+          <a><span><BackIcon color="white" className="navIcon" /></span>Back</a>
         </div>
-      </MuiThemeProvider>
-    ) : (
-      null
+        <div className="navItem">
+          <a><span><HomeIcon color="white" className="navIcon" /></span>Home</a>
+        </div>
+        <div className="navItem">
+          <a><span><GamesIcon color="white" className="navIcon" /></span>Games</a>
+        </div>
+        <div className="navItem">
+          <a><span><TeamsIcon color="white" className="navIcon" /></span>Teams</a>
+        </div>
+        <div className="navItem">
+          <a><span><PlayerIcon color="white" className="navIcon" /></span>Players</a>
+        </div>
+        <div className="navItem">
+          <a><span><LeagueSettingsIcon color="white" className="navIcon" /></span>Settings</a>
+        </div>
+      </div>
     );
   }
 }
