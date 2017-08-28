@@ -26,14 +26,14 @@ class Login extends Component {
         if (err) {
           console.log('something went wrong');
         }
-        localStorage.setItem('tstToken', res.body);
+        localStorage.setItem('currentUser', JSON.stringify(res.body));
         this.setState({ shouldRedirect: true });
       });
   }
   render() {
     return (
       this.state.shouldRedirect ?
-        <Redirect to={'/app/games'} /> :
+        <Redirect to={'/app'} /> :
         <div className="login" >
           <h3>Please login to Continue</h3>
           <TextField

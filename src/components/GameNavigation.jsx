@@ -48,7 +48,6 @@ class GameNavigation extends Component {
 
   render() {
     return (
-      console.log(this.props.match.params.id),
       <div>
         <Tabs>
           <Tab label="Period 1" >

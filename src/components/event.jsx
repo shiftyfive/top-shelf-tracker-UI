@@ -14,7 +14,6 @@ const Event = props => (
     <div className="col2">
       <h5>Time: {props.eventTime}</h5>
       <h5>result: {props.result}</h5>
-
       <Button
         variant="raised"
         label="Edit"
