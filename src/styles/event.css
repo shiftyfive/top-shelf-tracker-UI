@@ -1,4 +1,35 @@
-.event {
+.event-container {
+  padding: 20px;
+  width:50%;
+  margin-left: 20%;
+  margin-top: 10px;
+  color: white;
+  background-color: #1d2850;
+  box-shadow: inset 0 0 10px black, 0 0 10px black;
+  border-radius: 40px;
+}
+
+[class*='event-col-'] {
+  float: left
+}
+
+.event-row{
+  display: flex;
+}
+
+.left {
+  margin-right: 15px;
+}
+
+.button-edit-event {
+  margin-left: 75%;
+
+}
+
+.event-text {
+  font-weight: bold;
+}
+/* .event {
   width: 20%;
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -7,4 +38,4 @@
   padding: 10px;
   margin: 15px; 
   box-shadow: inset 0 0 10px grey, 0 0 10px grey;
-}
+} */
