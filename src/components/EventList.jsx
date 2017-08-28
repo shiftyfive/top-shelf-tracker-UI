@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import Event from './Event';
+import style from '../styles/events-list.css';
 import Button from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
 import AUTH_URL from '../server/server';
 
-const EventsList = (props) => {
-  return (
+const EventsList = (props) => (
     <div>
       {props.events.map(event => <Event {...event} />)}
     </div>
   );
-};
 
 class EventList extends Component {
   constructor() {
@@ -40,6 +39,19 @@ class EventList extends Component {
     return (
       <div>
         <EventsList events={this.state.events} />
+        <footer className="events-list-footer">
+          <div className="button-events-list-container">
+            <Button
+              label="Add Event"
+              secondary
+              style={{
+                marginLeft: '58%',
+                marginTop: '10px',
+                marginBottom: '10px',
+              }}
+            />
+          </div>
+        </footer>
       </div>
     );
   }

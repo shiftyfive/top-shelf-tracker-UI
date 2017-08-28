@@ -8,7 +8,7 @@ class Period extends Component {
     this.state = { events: [] };
   }
   handleClick(newEvent) {
-    this.setState({arrayvar:[...this.state.events, newEvent]})
+    this.setState({events:[...this.state.events, newEvent]})
   }
   render() {
     return (

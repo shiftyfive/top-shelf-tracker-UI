@@ -8,6 +8,7 @@ class GameOverlay extends Component {
   }
   render() {
     return (
+      console.log(this.props.location, 'log from GameOverlay component'),      
       <div className="nav-game-container">
         <div className="nav-game-child-1-3">
           <h3 className="nav-game-text">
