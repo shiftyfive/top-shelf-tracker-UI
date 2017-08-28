@@ -21,8 +21,7 @@ class GameList extends Component {
   }
 
   componentWillMount() {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'))
-    console.log(this.props.match.params.seasonId)
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     Request
       .get(`${AUTH_URL}api/${currentUser.userid}/games/${this.props.match.params.seasonId}`)
       .end((err, res) => {

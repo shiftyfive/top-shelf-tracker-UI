@@ -1,0 +1,15 @@
+
+.nav-game-container {
+  color: white;
+  display: flex;
+  background-color: #00bcd4;
+  justify-content: center;
+}
+
+.nav-game-child-1-3 {
+  width: 20%;
+}
+
+.nav-game-child-4-5 {
+  width: 10%;
+}

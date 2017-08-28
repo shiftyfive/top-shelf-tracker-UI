@@ -24,6 +24,7 @@ class GameNavigation extends Component {
 
     this.state = {
       activeTabIndex: 0,
+      events: [],
     };
   }
 
