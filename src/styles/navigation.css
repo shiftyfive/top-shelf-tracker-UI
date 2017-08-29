@@ -1,18 +1,23 @@
 .navContainer {
   border-radius: 25px;
-  height:100vh;
+  height:33vh;
   display: flex;
-  margin-left: 10px;
   flex-direction: column;
-  background-color:#2f3032;
+  background-color:#3aaad8;
+  box-shadow: inset 0 0 10px #bcd4e6, 0 0 10px #bcd4e6;
+  
+
 }
 
 .navItem a {
   color: white;
+  border-radius: 25px;
+  padding: 5px;
+  margin-left: 7px;
 }
 
 .navItem :hover {
-  background-color: #69F0AE;
+  background-color: #3C474B;
   cursor: pointer;
 }
 
@@ -22,4 +27,5 @@
   top: 5px;
   left: 5px;
   padding-right: 10px;
+
 }

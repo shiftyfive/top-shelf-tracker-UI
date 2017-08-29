@@ -2,14 +2,15 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import GameOverlay from './GameOverlay';
 import Period from './Period';
+import style from '../styles/game-sublayout.css';
 
-const GameSubLayout = (props) => (
-    console.log(props, 'call from game sublayout'),
+const GameSubLayout = props => (
   <div className="sublayout-content">
-    <Route path="/" component={GameOverlay} />
-    <Route path="/" component={Period} />
+    <Route path="/app/:seasonId/:gameId" component={GameOverlay} />
+    <Route path="/app/:seasonId/:gameId" component={Period} />
   </div>
-  
-)
+);
 
+// <Route path="/" component={GameOverlay} />
 export default GameSubLayout
+;

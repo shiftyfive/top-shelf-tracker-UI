@@ -4,7 +4,7 @@
   margin-left: 20%;
   margin-top: 10px;
   color: white;
-  background-color: #1d2850;
+  background-color: #162521;
   box-shadow: inset 0 0 10px black, 0 0 10px black;
   border-radius: 40px;
 }
@@ -25,6 +25,8 @@
   margin-left: 75%;
 
 }
+/* 1d2850 */
+
 
 .event-text {
   font-weight: bold;

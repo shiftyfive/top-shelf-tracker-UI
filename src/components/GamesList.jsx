@@ -34,7 +34,7 @@ class GameList extends Component {
 
   render() {
     return (
-      <div>
+      <div key={this.props.game_id}>
         <GamesList games={this.state.games} />
       </div>
     );

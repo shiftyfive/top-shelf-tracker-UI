@@ -23,8 +23,6 @@ class GameNavigation extends Component {
     this.handleClick = this.handleClick.bind(this);
 
     this.state = {
-      activeTabIndex: 0,
-      events: [],
     };
   }
 
@@ -41,14 +39,21 @@ class GameNavigation extends Component {
       });
   }
 
-  componentWillMount() {
-    Request
-      .post(`${AUTH_URL}/`)
-      
-  }
+  // componentWillMount() {
+  //   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  //   Request
+  //     .get(`${AUTH_URL}api/${currentUser.userid}/games/${this.props.match.params.seasonId}/`)
+  //     .end((err, res) => {
+  //       if(err) {
+  //         console.log('something went wrong on the gamesList mount');
+  //       }
+  //       this.setState({ games: res.body });
+  //     });
+  // }
 
   render() {
     return (
+      console.log(this.props.match, 'game overlay props'),
       <div>
         <Tabs>
           <Tab label="Period 1" >
