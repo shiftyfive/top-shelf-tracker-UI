@@ -7,10 +7,12 @@ import style from '../styles/game-sublayout.css';
 const GameSubLayout = props => (
   <div className="sublayout-content">
     <Route path="/app/:seasonId/:gameId" component={GameOverlay} />
-    <Route path="/app/:seasonId/:gameId" component={Period} />
   </div>
 );
 
 // <Route path="/" component={GameOverlay} />
+// <Route path="/app/:seasonId/:gameId" component={Period} />
+// removed Period so much for this bieng a sub layout
+
 export default GameSubLayout
 ;

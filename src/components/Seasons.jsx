@@ -16,6 +16,7 @@ class Seasons extends Component {
   }
   componentWillMount() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(currentUser, 'loggin from Seasons component currentUser')
     Request
       .get(`${AUTH_URL}api/${currentUser.userId}`)
       .end((err, res) => {

@@ -10,8 +10,9 @@ class Period extends Component {
   handleClick(newEvent) {
     this.setState({events:[...this.state.events, newEvent]})
   }
-  render() {
+  render(props) {
     return (
+      console.log(this.props, 'logged from the period componenet'),
       <div>
         <EventList />
       </div>

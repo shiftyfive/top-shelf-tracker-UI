@@ -1,6 +1,6 @@
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import TextField from 'material-ui/TextField';
 import MenuItem from 'material-ui/MenuItem';
@@ -69,7 +69,16 @@ class EventForm extends Component {
 
     return (
       <div>
-        <RaisedButton label="Add Event" onClick={this.handleOpen} />
+        <Button
+          label="Add Event" 
+          onClick={this.handleOpen}
+          secondary
+          style={{
+            marginLeft: '58%',
+            marginTop: '10px',
+            marginBottom: '10px',
+          }}
+        />
         <Dialog
           title="Add Event"
           actions={actions}
