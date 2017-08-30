@@ -6,6 +6,7 @@ import Navigation from './Navigation';
 import GameSubLayout from './GameSubLayout'
 import GamesList from './GamesList';
 import Seasons from './Seasons';
+import Teams from './Teams';
 import '../styles/primarylayout.css';
 import '../App.css';
 
@@ -34,6 +35,7 @@ class PrimaryLayout extends Component {
               <Route exact path="/app" component={Seasons} />
               <Route exact path="/app/:seasonId" component={GamesList} />
               <Route exact path="/app/:seasonId/:gameId" component={GameSubLayout} />
+              <Route exact path="/app/:seasonId/teams" component={Teams} />
             </main>
           </switch>
         </div>

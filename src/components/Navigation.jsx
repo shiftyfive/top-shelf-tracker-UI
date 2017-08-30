@@ -20,26 +20,26 @@ class Navigation extends Component {
 
     };
   }
-  render() {
+  render(props) {
     return (
+      console.log(this.props.match.params.seasonID, 'longing match from nav component'),
       <div className="navContainer">
-        <div className="navItem">
-          <a><span><BackIcon color="white" className="navIcon" /></span>Back</a>
-        </div>
-        <div className="navItem">
-          <a><span><GamesIcon color="white" className="navIcon" /></span>Games</a>
-        </div>
+        <Link to={`/app/`}>
+          <div className="navItem">
+            <a><span><BackIcon color="white" className="navIcon" /></span>Seasons</a>
+          </div>
+        </Link>
+        <Link to={`/app/${this.props.match.params.seasonID}/teams`}>
+          <div className="navItem">
+            <a><span><GamesIcon color="white" className="navIcon" /></span>Games</a>
+          </div>
+        </Link>
         <div className="navItem">
           <a><span><TeamsIcon color="white" className="navIcon" /></span>Teams</a>
         </div>
         <div className="navItem">
           <a><span><PlayerIcon color="white" className="navIcon" /></span>Players</a>
         </div>
-        <Link to={`/app/`}>
-        <div className="navItem">
-          <a><span><SeasonIcon color="white" className="navIcon" /></span>Seasons</a>
-        </div>
-        </Link>
         <div className="navItem">
           <a><span><LeagueSettingsIcon color="white" className="navIcon" /></span>Settings</a>
         </div>
