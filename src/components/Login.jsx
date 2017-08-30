@@ -34,7 +34,7 @@ class Login extends Component {
     return (
       this.state.shouldRedirect ?
         <Redirect to={'/app'} /> :
-        <div className="login" >
+        <div className="login-container" >
           <h3>Please login to Continue</h3>
           <TextField
             hintText="Enter your email"
@@ -56,12 +56,14 @@ class Login extends Component {
             }
           />
           <br />
+          <div className='button-container'>
           <Button
             variant="raised"
             label="Submit"
             primary
             onClick={this.handleClick}
           />
+          </div>
         </div>
     );
   }

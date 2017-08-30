@@ -4,8 +4,10 @@ import { Card, CardActions, CardHeader } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 const GameCard = props => (
+  console.log(props, 'props from gameCard'),
   <Card>
     <CardHeader
+      key={props.game_id}
       title={`${props.teams[0].name} VS ${props.teams[1].name}`}
       subtitle={`Game Time: ${props.date}`}
       actAsExpander={false}

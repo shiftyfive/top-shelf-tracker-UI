@@ -47,7 +47,7 @@ class Seasons extends Component {
           >
             {this.state.tableData.map(row => (
               <Link to={`/app/${row.id}`}>
-                <TableRow key={row.id}>
+                <TableRow  key={row.id}>
                   <TableRowColumn>{row.league_name}</TableRowColumn>
                   <TableRowColumn>{row.season_start}</TableRowColumn>
                   <TableRowColumn>{row.season_end}</TableRowColumn>

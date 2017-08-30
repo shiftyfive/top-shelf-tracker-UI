@@ -7,7 +7,6 @@ import AutoComplete from 'material-ui/AutoComplete';
 import AUTH_URL from '../server/server';
 
 const EventsList = props => (
-  console.log(props, 'loggin from new EventsList Pure Component'),
   <div>
     {props.events.map(event => <Event {...event} />)}
   </div>

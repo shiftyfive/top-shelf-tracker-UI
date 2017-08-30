@@ -12,10 +12,11 @@ class GameOverlay extends Component {
   constructor() {
     super();
     this.state = {
-      gameState: null,
+      game: null,
+      activePeriod: 0,
     };
+    this.addEventCallback = this.addEventCallback.bind(this);
   }
-
   componentWillMount() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const seasonId = this.props.match.params.seasonId;
@@ -26,11 +27,25 @@ class GameOverlay extends Component {
         if (err) {
           console.log('something went wrong on the gamesList mount');
         }
-        this.setState({ gameState: res.body });
+        console.log(res.body, 'logging res.body from component will mount in GameOverlay')
+        this.setState({ game: res.body });
       });
+    // this.handleSubmit = this.handleSubmit.bind(this);      
   }
+
+  addEventCallback(newEvent) {
+    this.setState(state => ({
+      game: {
+        ...state.game,
+        events: [...state.game.events, newEvent],
+      }
+    }));
+    console.log(this.state, 'this.state logged inside of addEventCallback on GameOverlay Component')
+  }
+
   render() {
-    const dataReady = this.state.gameState
+    console.log(this.state, 'logging state via GameOverlay')
+    const dataReady = this.state.game;
     return (
       <div>
         <div className="nav-game-container">
@@ -60,13 +75,14 @@ class GameOverlay extends Component {
             </h3>
           </div>
         </div>
-        {(dataReady) ? <EventList events={this.state.gameState.events} /> : <CircularProgress size={80} thickness={5} />}
-        <footer className="events-list-footer">
-          <div className="button-events-list-container">
-            <EventsForm />
+        {(dataReady) ?
+          <div><EventList events={this.state.game.events} /><footer className="events-list-footer">
+          <EventsForm formObj={this.state.game} addEventCallback={this.addEventCallback} /></footer>
           </div>
+          : <CircularProgress size={80} thickness={5} />}
+        <footer className="events-list-footer">
         </footer>
-      </div>
+        </div>
     );
   }
 }

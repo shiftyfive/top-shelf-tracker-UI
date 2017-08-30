@@ -6,12 +6,12 @@ import TeamsIcon from 'material-ui/svg-icons/social/group';
 import PlayerIcon from 'material-ui/svg-icons/action/account-circle';
 import SeasonIcon from 'material-ui/svg-icons/action/date-range';
 import LeagueSettingsIcon from 'material-ui/svg-icons/action/build';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import Style from '../styles/navigation.css';
 
-const floatStyle = {
-  float: 'right',
-};
+// const floatStyle = {
+//   float: 'right',
+// };
 
 class Navigation extends Component {
   constructor(props) {
@@ -35,9 +35,11 @@ class Navigation extends Component {
         <div className="navItem">
           <a><span><PlayerIcon color="white" className="navIcon" /></span>Players</a>
         </div>
+        <Link to={`/app/`}>
         <div className="navItem">
           <a><span><SeasonIcon color="white" className="navIcon" /></span>Seasons</a>
         </div>
+        </Link>
         <div className="navItem">
           <a><span><LeagueSettingsIcon color="white" className="navIcon" /></span>Settings</a>
         </div>

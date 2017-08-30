@@ -5,7 +5,6 @@ import HomePage from './HomePage';
 import Navigation from './Navigation';
 import GameSubLayout from './GameSubLayout'
 import GamesList from './GamesList';
-import GameNavigation from './GameNavigation';
 import Seasons from './Seasons';
 import '../styles/primarylayout.css';
 import '../App.css';

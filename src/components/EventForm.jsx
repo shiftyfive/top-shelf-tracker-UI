@@ -17,11 +17,13 @@ class EventForm extends Component {
     super(props);
     this.state = {
       open: false,
-      playerName: '',
-      type: '',
+      player_name: '',
+      jersey_number: '',
+      event_type: '',
       result: '',
-      zone: '',
-      time: '',
+      event_zone: '',
+      event_time: '',
+      game_id: props.formObj.homeTeam.players[0].game_id,
     };
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -42,17 +44,21 @@ class EventForm extends Component {
     this.setState(() => ({ [field]: value }));
   }
 
-
-  handleSubmit() {
+  handleSubmit(props) {
+    console.log(this.state)
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    // ${this.props.match.params.seasonId}
     Request
-      .post(`${AUTH_URL}game/:id`)
+      .post(`${AUTH_URL}api/1/games/1/1`)
       .send(this.state)
       .end((err, res) => {
-        this.handleClose();
+        console.log(res);
       });
+    this.props.addEventCallback(this.state)
+    this.handleClose()
   }
 
-  render() {
+  render(props) {
     const actions = [
       <FlatButton
         label="Cancel"
@@ -63,7 +69,7 @@ class EventForm extends Component {
         label="Add"
         primary
         keyboardFocused
-        onClick={this.handleClose}
+        onClick={this.handleSubmit}
       />,
     ];
 
@@ -84,12 +90,15 @@ class EventForm extends Component {
           actions={actions}
           modal={false}
           open={this.state.open}
-          onRequestClose={this.handleSubmit}
         >
           <div className="event-form">
             <TextField
               hintText="enter player name"
-              onChange={event => this.updateField('playerName', event.target.value)}
+              onChange={event => this.updateField('player_name', event.target.value)}
+            />
+            <TextField
+              hintText="enter jersey number"
+              onChange={event => this.updateField('jersey_number', event.target.value)}
             />
             <SelectField
               hintText="Event Type"
