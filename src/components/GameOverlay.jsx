@@ -15,8 +15,15 @@ class GameOverlay extends Component {
       game: null,
       activePeriod: 0,
     };
+    this.styles = {
+      selected: {
+        backgroundColor: '#027BCE',
+      },
+    };
     this.addEventCallback = this.addEventCallback.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
+
   componentWillMount() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const seasonId = this.props.match.params.seasonId;
@@ -34,55 +41,61 @@ class GameOverlay extends Component {
   }
 
   addEventCallback(newEvent) {
+    const self = this;
+    let activePeriod = this.state.activePeriod
+    self.state.game.events[activePeriod].push(newEvent);
+
     this.setState(state => ({
       game: {
-        ...state.game,
-        events: [...state.game.events, newEvent],
+        ...self.state.game,
+        events: [...self.state.game.events],
       }
     }));
-    console.log(this.state, 'this.state logged inside of addEventCallback on GameOverlay Component')
   }
 
+  handleClick(value) {
+    this.setState(() => ({ activePeriod: value }));
+    console.log(this.state.activePeriod, 'logging state of activePeriod after handleclick evnet on game overlay')
+  }
   render() {
-    console.log(this.state, 'logging state via GameOverlay')
+    console.log(this.state, 'logging state from GameOverlay render');
     const dataReady = this.state.game;
     return (
       <div>
         <div className="nav-game-container">
-          <div className="nav-game-child-1-3">
+          <div onClick={() => this.handleClick(0)} className="nav-game-child-1-3" style={(this.state.activePeriod === 0 ? this.styles.selected : null)}>
             <h3 className="nav-game-text">
             Period 1
             </h3>
           </div>
-          <div className="nav-game-child-1-3">
+          <div onClick={() => this.handleClick(1)} className="nav-game-child-1-3" style={(this.state.activePeriod === 1 ? this.styles.selected : null)}>
             <h3 className="nav-game-text">
             Period 2
             </h3>
           </div>
-          <div className="nav-game-child-1-3">
+          <div onClick={() => this.handleClick(2)}  className="nav-game-child-1-3" style={(this.state.activePeriod === 2 ? this.styles.selected : null)}>
             <h3 className="nav-game-text">
             Period 3
             </h3>
           </div>
-          <div className="nav-game-child-4-5">
+          <div onClick={() => this.handleClick(3)}  className="nav-game-child-4-5" style={(this.state.activePeriod === 3 ? this.styles.selected : null)} >
             <h3 className="nav-game-text">
             OT
             </h3>
           </div>
-          <div className="nav-game-child-4-5">
+          <div onClick={() => this.handleClick(4)}  className="nav-game-child-4-5" style={(this.state.activePeriod === 4 ? this.styles.selected : null)}>
             <h3 className="nav-game-text">
             SO
             </h3>
           </div>
         </div>
         {(dataReady) ?
-          <div><EventList events={this.state.game.events} /><footer className="events-list-footer">
-          <EventsForm formObj={this.state.game} addEventCallback={this.addEventCallback} /></footer>
+          <div><EventList events={this.state.game.events[this.state.activePeriod]} /><footer className="events-list-footer">
+            <EventsForm playerList={this.state.game.players} activePeriod={this.state.activePeriod} addEventCallback={this.addEventCallback} /></footer>
           </div>
           : <CircularProgress size={80} thickness={5} />}
-        <footer className="events-list-footer">
-        </footer>
-        </div>
+        <footer className="events-list-footer" />
+      </div>
     );
   }
 }

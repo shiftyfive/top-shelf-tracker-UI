@@ -4,7 +4,6 @@ import style from '../styles/event.css';
 import Button from 'material-ui/RaisedButton';
 
 const Event = props => (
-  console.log(props, 'logging props at event component area'),
   <div className="event-container">
     <div className="event-row">
       <h4 className="left">Player: {props.player_name}</h4>

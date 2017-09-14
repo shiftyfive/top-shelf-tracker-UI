@@ -29,14 +29,16 @@ class Navigation extends Component {
             <a><span><BackIcon color="white" className="navIcon" /></span>Seasons</a>
           </div>
         </Link>
-        <Link to={`/app/${this.props.match.params.seasonID}/teams`}>
+        <Link to={`/app/${this.props.match.params.seasonID}`}>
           <div className="navItem">
             <a><span><GamesIcon color="white" className="navIcon" /></span>Games</a>
           </div>
         </Link>
-        <div className="navItem">
-          <a><span><TeamsIcon color="white" className="navIcon" /></span>Teams</a>
-        </div>
+        <Link to={`/app/${this.props.match.params.seasonID}/list/teams`}>
+          <div className="navItem">
+            <a><span><TeamsIcon color="white" className="navIcon" /></span>Teams</a>
+          </div>
+        </Link>
         <div className="navItem">
           <a><span><PlayerIcon color="white" className="navIcon" /></span>Players</a>
         </div>

@@ -11,6 +11,7 @@ class Seasons extends Component {
     this.state = {
       showCheckboxes: false,
       stripedRow: true,
+      showRowHover: true,
       tableData: [],
     };
   }
@@ -25,6 +26,10 @@ class Seasons extends Component {
         }
         this.setState({ tableData: res.body });
       });
+  }
+
+  handleClick(selectedRow) {
+    this.props.history.push(`/app/${selectedRow.id}`)
   }
   render() {
     return (
@@ -46,13 +51,11 @@ class Seasons extends Component {
             showRowHover={this.state.showRowHover}
           >
             {this.state.tableData.map(row => (
-              <Link to={`/app/${row.id}`}>
-                <TableRow  key={row.id}>
+                <TableRow selectable={false} key={row.id} onClick={() => this.handleClick(row)} >
                   <TableRowColumn>{row.league_name}</TableRowColumn>
                   <TableRowColumn>{row.season_start}</TableRowColumn>
                   <TableRowColumn>{row.season_end}</TableRowColumn>
                 </TableRow>
-              </Link>
             ))}
           </TableBody>
         </Table>
