@@ -1,5 +1,5 @@
 import React from 'react';
 
-const AUTH_URL = window.location.host.indexOf('localhost') > -1 ? 'http://localhost:3000/' : null;
+const AUTH_URL = `https://top-shelf-tracker-api.herokuapp.com/`;
 
 export default AUTH_URL;
