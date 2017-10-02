@@ -91,7 +91,7 @@ class Seasons extends Component {
   handleSubmit(props) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const formObj = this.state.formData;
-    this.setState();
+    console.log(currentUser);
     Request
       .post(`${AUTH_URL}api/${currentUser.userId}`)
       .send(this.state.formData)
