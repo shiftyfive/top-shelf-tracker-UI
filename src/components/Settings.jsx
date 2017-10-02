@@ -42,16 +42,22 @@ class Settings extends Component {
           <div>
           <div className="settings-container">
             <div className="settings-child">
+            <div className="content">
               <h4>Add Games</h4>
               <GameForm seasonId={this.props.match.params.seasonId} teamData={this.state.teams_list} />
+              </div>
             </div>
             <div className="settings-child">
+            <div className="content">
               <h4>Add Teams</h4>
               <TeamsForm />
+              </div>
             </div>
             <div className="settings-child">
+            <div className="content">
               <h4>Add Players</h4>
               <PlayersForm teamData={this.state.teams_list} />
+              </div>
             </div>
           </div>
           <footer className="delete-season">
