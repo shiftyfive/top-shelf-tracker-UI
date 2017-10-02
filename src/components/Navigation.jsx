@@ -9,10 +9,6 @@ import LeagueSettingsIcon from 'material-ui/svg-icons/action/build';
 import { BrowserRouter, Link } from 'react-router-dom';
 import Style from '../styles/navigation.css';
 
-// const floatStyle = {
-//   float: 'right',
-// };
-
 class Navigation extends Component {
   constructor(props) {
     super(props);
@@ -21,10 +17,10 @@ class Navigation extends Component {
     };
   }
   render(props) {
+    console.log(this.props.match)
     return (
-      console.log(this.props.match.params.seasonID, 'longing match from nav component'),
       <div className="navContainer">
-        <Link to={`/app/`}>
+        <Link to={'/app/'}>
           <div className="navItem">
             <a><span><BackIcon color="white" className="navIcon" /></span>Seasons</a>
           </div>
@@ -39,12 +35,16 @@ class Navigation extends Component {
             <a><span><TeamsIcon color="white" className="navIcon" /></span>Teams</a>
           </div>
         </Link>
-        <div className="navItem">
-          <a><span><PlayerIcon color="white" className="navIcon" /></span>Players</a>
-        </div>
-        <div className="navItem">
-          <a><span><LeagueSettingsIcon color="white" className="navIcon" /></span>Settings</a>
-        </div>
+        <Link to={`/app/${this.props.match.params.seasonID}/list/players`}>
+          <div className="navItem">
+            <a><span><PlayerIcon color="white" className="navIcon" /></span>Players</a>
+          </div>
+        </Link>
+        <Link to={`/app/${this.props.match.params.seasonID}//settings`}>
+          <div className="navItem">
+            <a><span><LeagueSettingsIcon color="white" className="navIcon" /></span>Settings</a>
+          </div>
+        </Link>
       </div>
     );
   }

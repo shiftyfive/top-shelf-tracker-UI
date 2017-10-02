@@ -10,9 +10,5 @@ const GameSubLayout = props => (
   </div>
 );
 
-// <Route path="/" component={GameOverlay} />
-// <Route path="/app/:seasonId/:gameId" component={Period} />
-// removed Period so much for this bieng a sub layout
-
 export default GameSubLayout
 ;

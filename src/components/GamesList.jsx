@@ -34,7 +34,7 @@ class GameList extends Component {
 
   render() {
     return (
-      console.log(this.props, 'from GameList render function'),
+      console.log(this.props, 'logging props from game list render'),
       <div key={this.props.game_id}>
         <GamesList games={this.state.games} />
       </div>

@@ -1,0 +1,15 @@
+.settings-container {
+  display: flex;
+}
+
+.settings-child {
+  width: 32%;
+  margin-right: 1%;
+  background-color: pink;
+  height: 50vh;
+}
+
+.delete-season {
+  margin-top: 10px;
+  margin-left: 75%;
+}

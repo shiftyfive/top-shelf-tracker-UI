@@ -23,8 +23,12 @@
 }
 
 .events-list-footer {
-  margin-top: 10px;
   background-color: #00bcd4;
+}
+
+.events-well {
+  height: 68vh;
+  overflow: scroll;
 }
 
 .buttons-list-container {

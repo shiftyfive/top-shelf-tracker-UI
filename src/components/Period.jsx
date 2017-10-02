@@ -12,7 +12,6 @@ class Period extends Component {
   }
   render(props) {
     return (
-      console.log(this.props, 'logged from the period componenet'),
       <div>
         <EventList />
       </div>

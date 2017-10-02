@@ -38,7 +38,6 @@ class EventForm extends Component {
     this.handleClose = this.handleClose.bind(this);
     this.updateField = this.updateField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateField = this.updateField.bind(this);
     this.updatePlayerDataCallBack = this.updatePlayerDataCallBack.bind(this);
   }
 
@@ -51,7 +50,6 @@ class EventForm extends Component {
     this.setState(() => ({ open: false }));
   }
 
-  // this.setState(() => ({ [field]: value }));
 
   updateField(field, value) {
     this.setState(state => ({
@@ -63,7 +61,6 @@ class EventForm extends Component {
   }
 
   updatePlayerDataCallBack(playerObj) {
-    console.log(playerObj);
     this.setState(state => ({
       playerData: {
         ...state.playerData,
@@ -76,7 +73,6 @@ class EventForm extends Component {
   }
 
   handleSubmit(props) {
-    console.log('handle submit called')
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const eventObject = {
       game_id: 1,
@@ -93,14 +89,12 @@ class EventForm extends Component {
       .post(`${AUTH_URL}api/1/games/1/1`)
       .send(eventObject)
       .end((err, res) => {
-        console.log(res);
       });
     this.props.addEventCallback(eventObject);
     this.handleClose();
   }
 
   render(props) {
-    console.log(this.state,'logging state from event form component')
     const actions = [
       <FlatButton
         label="Cancel"
@@ -153,9 +147,9 @@ class EventForm extends Component {
               value={this.state.eventData.event_type}
               onChange={(...event) => this.updateField('event_type', event[selectionValue])}
             >
-              <MenuItem value="Shot" primaryText="Shot" />
-              <MenuItem value="Pass" primaryText="Pass" />
-              <MenuItem value="Hit" primaryText="Hit" />
+              <MenuItem value="shot" primaryText="Shot" />
+              <MenuItem value="pass" primaryText="Pass" />
+              <MenuItem value="hit" primaryText="Hit" />
             </SelectField>
             <SelectField
               className="hackey-style"
@@ -163,10 +157,10 @@ class EventForm extends Component {
               value={this.state.eventData.result}
               onChange={(...event) => this.updateField('result', event[selectionValue])}
             >
-              <MenuItem value="Goal" primaryText="Goal" />
-              <MenuItem value="Save" primaryText="Save" />
-              <MenuItem value="Zone Exit" primaryText="Zone Exit" />
-              <MenuItem value="Turn Over" primaryText="Turn Over" />
+              <MenuItem value="goal" primaryText="Goal" />
+              <MenuItem value="save" primaryText="Save" />
+              <MenuItem value="zone Exit" primaryText="Zone Exit" />
+              <MenuItem value="turn over" primaryText="Turn Over" />
 
             </SelectField>
             <SelectField

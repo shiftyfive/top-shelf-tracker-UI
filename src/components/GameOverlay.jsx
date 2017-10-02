@@ -32,12 +32,26 @@ class GameOverlay extends Component {
       .get(`${AUTH_URL}api/${currentUser.userId}/games/${seasonId}/${gameId}`)
       .end((err, res) => {
         if (err) {
-          console.log('something went wrong on the gamesList mount');
+        console.log('something went wrong on the gamesList mount');
         }
         console.log(res.body, 'logging res.body from component will mount in GameOverlay')
         this.setState({ game: res.body });
       });
     // this.handleSubmit = this.handleSubmit.bind(this);      
+  }
+
+  deleteEvent(event) {
+    const self = this;
+    console.log(self.state, 'logging self.state from deleteEvent')
+    let activePeriod = this.state.activePeriod;
+    let index = self.state.game.events[activePeriod].indexOf(event.target.value);
+    self.state.game.events[activePeriod].splice(index, 1);
+    this.setState(state => ({
+      game: {
+        ...self.state.game,
+        events: [...self.state.game.events],
+      }
+    }));
   }
 
   addEventCallback(newEvent) {
@@ -55,10 +69,8 @@ class GameOverlay extends Component {
 
   handleClick(value) {
     this.setState(() => ({ activePeriod: value }));
-    console.log(this.state.activePeriod, 'logging state of activePeriod after handleclick evnet on game overlay')
   }
   render() {
-    console.log(this.state, 'logging state from GameOverlay render');
     const dataReady = this.state.game;
     return (
       <div>
@@ -90,8 +102,12 @@ class GameOverlay extends Component {
           </div>
         </div>
         {(dataReady) ?
-          <div><EventList events={this.state.game.events[this.state.activePeriod]} /><footer className="events-list-footer">
-            <EventsForm playerList={this.state.game.players} activePeriod={this.state.activePeriod} addEventCallback={this.addEventCallback} /></footer>
+          <div>
+            <div className="events-well"><EventList seasonId={this.props.match.params.seasonId} gameId={this.props.match.params.gameId} events={this.state.game.events[this.state.activePeriod]} />
+            </div>
+            <footer className="events-list-footer">
+              <EventsForm playerList={this.state.game.players} activePeriod={this.state.activePeriod} addEventCallback={this.addEventCallback} />
+            </footer>
           </div>
           : <CircularProgress size={80} thickness={5} />}
         <footer className="events-list-footer" />

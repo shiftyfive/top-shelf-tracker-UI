@@ -7,8 +7,9 @@ import AutoComplete from 'material-ui/AutoComplete';
 import AUTH_URL from '../server/server';
 
 const EventsList = props => (
+  console.log(props, 'logging props from eventslist'),
   <div>
-    {props.events.map(event => <Event {...event} />)}
+    {props.events.map(event => <Event seasonId={props.seasonId} gameId={props.gameId} {...event} />)}
   </div>
 );
 

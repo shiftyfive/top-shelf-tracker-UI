@@ -33,11 +33,10 @@ class Teams extends Component {
   }
 
   handleClick(selectedRow) {
-    this.props.history.push(`/app/1/list/teams/roster/${selectedRow.id}`)
+    this.props.history.push(`/app/1/list/teams/${selectedRow.id}`)
   }
 
   render() {
-    
     const dataReady = this.state.tableData;
     return (
       <div>

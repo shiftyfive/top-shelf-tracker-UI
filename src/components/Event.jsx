@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import superagent from 'superagent';
 import style from '../styles/event.css';
 import Button from 'material-ui/RaisedButton';
+import DeleteEvent from './DeleteEvent';
 
 const Event = props => (
+  console.log(props, 'logging props from event'),
   <div className="event-container">
     <div className="event-row">
       <h4 className="left">Player: {props.player_name}</h4>
@@ -19,13 +21,7 @@ const Event = props => (
         <h5 className="right">Time: <span className="event-text">{props.event_time}</span></h5>
       </div>
       <div>
-        <Button
-          className="button-edit-event"
-          primary={true}
-          variant="raised"
-          label="Edit"
-          default
-        />
+        <DeleteEvent seasonId={props.seasonId} gameId={props.gameId} className="button-edit-event" eventId={props.event_id} />
       </div>
     </div>
   </div>
