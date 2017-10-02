@@ -38,6 +38,7 @@ class Seasons extends Component {
   }
   componentWillMount() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(currentUser);
     Request
       .get(`${AUTH_URL}api/${currentUser.userId}`)
       .end((err, res) => {
@@ -91,7 +92,6 @@ class Seasons extends Component {
   handleSubmit(props) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const formObj = this.state.formData;
-    console.log(currentUser);
     Request
       .post(`${AUTH_URL}api/${currentUser.userId}`)
       .send(this.state.formData)
