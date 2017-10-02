@@ -27,7 +27,9 @@ class Login extends Component {
           console.log('something went wrong');
         }
         localStorage.setItem('currentUser', JSON.stringify(res.body));
-        this.setState({ shouldRedirect: true });
+        setTimeout(() => {
+          this.setState({ shouldRedirect: true });
+        }, 3000);
       });
   }
   render() {

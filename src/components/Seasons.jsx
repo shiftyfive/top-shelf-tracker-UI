@@ -105,6 +105,7 @@ class Seasons extends Component {
   }
 
   render(props) {
+    const dataReady = JSON.parse(localStorage.getItem('currentUser'))
     const actions = [
       <Button
         label="Cancel"
