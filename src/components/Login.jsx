@@ -23,13 +23,12 @@ class Login extends Component {
       .post(`${AUTH_URL}login`)
       .send(this.state)
       .end((err, res) => {
+        console.log(res.body);
         if (err) {
           console.log('something went wrong');
         }
         localStorage.setItem('currentUser', JSON.stringify(res.body));
-        setTimeout(() => {
-          this.setState({ shouldRedirect: true });
-        }, 3000);
+        this.setState({ shouldRedirect: true });
       });
   }
   render() {
