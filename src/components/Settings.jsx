@@ -42,15 +42,15 @@ class Settings extends Component {
           <div>
           <div className="settings-container">
             <div className="settings-child">
-              <h4 className="inline">Add Games</h4>
+              <h4>Add Games</h4>
               <GameForm seasonId={this.props.match.params.seasonId} teamData={this.state.teams_list} />
             </div>
             <div className="settings-child">
-              <h4 className="inline">Add Teams</h4>
+              <h4>Add Teams</h4>
               <TeamsForm />
             </div>
             <div className="settings-child">
-              <h4 className="inline">Add Players</h4>
+              <h4>Add Players</h4>
               <PlayersForm teamData={this.state.teams_list} />
             </div>
           </div>
